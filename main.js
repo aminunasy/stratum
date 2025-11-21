@@ -1,18 +1,56 @@
 import './style.css'
-import { Hero } from './components/Hero.js'
-import { SocialProof } from './components/SocialProof.js'
-import { Services } from './components/Services.js'
-import { Methodology } from './components/Methodology.js'
-import { Projects } from './components/Projects.js'
-import { CTA } from './components/CTA.js'
+import { initRouter } from './utils/router.js'
+import { Header } from './components/Header.js'
+import { Footer } from './components/Footer.js'
+import { Home } from './pages/Home.js'
+import { ServicesPage } from './pages/ServicesPage.js'
+import { ServiceDetail } from './pages/ServiceDetail.js'
+import { ProjectsPage } from './pages/ProjectsPage.js'
+import { MethodologyPage } from './pages/MethodologyPage.js'
+import { ProjectDetail } from './pages/ProjectDetail.js'
+import { ContactPage } from './pages/ContactPage.js'
 
-document.querySelector('#app').innerHTML = `
-  <main>
-    ${Hero()}
-    ${SocialProof()}
-    ${Services()}
-    ${Methodology()}
-    ${Projects()}
-    ${CTA()}
-  </main>
-`
+const routes = {
+  '#/': Home,
+  '#/services': ServicesPage,
+  '#/services/:id': ServiceDetail,
+  '#/projects': ProjectsPage,
+  '#/projects/:id': ProjectDetail,
+  '#/methodology': MethodologyPage,
+  '#/contact': ContactPage
+}
+
+const router = initRouter(routes)
+
+const render = ({ renderFn, params }) => {
+  // Force scroll to top before anything else
+  window.scrollTo(0, 0)
+  document.documentElement.scrollTop = 0
+  document.body.scrollTop = 0
+  
+  document.querySelector('#app').innerHTML = `
+    ${Header()}
+    <main>
+      ${renderFn(params)}
+    </main>
+    ${Footer()}
+  `
+  
+  // Multiple fallbacks to ensure scroll
+  requestAnimationFrame(() => {
+    window.scrollTo(0, 0)
+    document.documentElement.scrollTop = 0
+    document.body.scrollTop = 0
+  })
+  
+  setTimeout(() => {
+    window.scrollTo(0, 0)
+    document.documentElement.scrollTop = 0
+    document.body.scrollTop = 0
+  }, 10)
+}
+
+router.subscribe(render)
+
+// Initial render
+render(router.getCurrentRoute())

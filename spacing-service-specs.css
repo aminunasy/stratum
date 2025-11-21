@@ -1,0 +1,5 @@
+
+/* Add bottom spacing after service specs list */
+.service-specs {
+  margin-bottom: var(--spacing-md);
+}

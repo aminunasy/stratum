@@ -24,7 +24,7 @@ export function Methodology() {
             <span class="step-num">03</span>
             <div class="step-info">
               <h3 class="step-name">PRECISION CLADDING</h3>
-              <p class="step-desc">Millimeter-perfect installation of slate or zinc.</p>
+              <p class="step-desc">Expert installation with exacting tolerances and attention to detail.</p>
             </div>
           </div>
         </div>

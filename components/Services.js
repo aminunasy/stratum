@@ -35,7 +35,7 @@ export function Services() {
               <ul class="service-specs">
                 ${s.specs.map(spec => `<li>${spec}</li>`).join('')}
               </ul>
-              <a href="#" class="service-link">[ REQUEST SPEC SHEET ]</a>
+              <a href="#/services/${s.id}" class="service-link">[ VIEW DETAILS ]</a>
             </div>
           </div>
         </div>

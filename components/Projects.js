@@ -1,35 +1,6 @@
-export function Projects() {
-    const projects = [
-        {
-            id: '01',
-            name: 'THE MANOR',
-            loc: 'GREENWICH, CT',
-            mat: 'SLATE / LIMESTONE',
-            img: '/project-manor.png'
-        },
-        {
-            id: '02',
-            name: 'THE VILLA',
-            loc: 'ASPEN, CO',
-            mat: 'ZINC / GLASS',
-            img: '/project-villa.png'
-        },
-        {
-            id: '03',
-            name: 'THE SPIRE',
-            loc: 'BOSTON, MA',
-            mat: 'COPPER / STONE',
-            img: '/project-manor.png' // Reusing for now
-        },
-        {
-            id: '04',
-            name: 'THE COMPLEX',
-            loc: 'SEATTLE, WA',
-            mat: 'TPO / CONCRETE',
-            img: '/project-villa.png' // Reusing for now
-        }
-    ];
+import { projects } from '../data/projects.js'
 
+export function Projects() {
     return `
     <section class="projects-section">
       <div class="projects-header">
@@ -39,7 +10,7 @@ export function Projects() {
       
       <div class="projects-grid">
         ${projects.map(p => `
-          <div class="project-card">
+          <a href="#/projects/${p.id}" class="project-card">
             <div class="project-img-wrap">
               <img src="${p.img}" alt="${p.name}" class="project-img" />
               <div class="project-overlay">
@@ -54,7 +25,7 @@ export function Projects() {
               <h3 class="project-name">${p.name}</h3>
               <span class="project-mat">${p.mat}</span>
             </div>
-          </div>
+          </a>
         `).join('')}
       </div>
     </section>
