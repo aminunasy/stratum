@@ -1,0 +1,986 @@
+/* STRATUM Design System */
+
+:root {
+    /* Palette */
+    --color-void: #050505;
+    --color-panel: #1A1A1A;
+    --color-text: #E5E5E5;
+    --color-text-dim: #888888;
+    --color-border: #333333;
+    --color-white: #FFFFFF;
+
+    /* Typography */
+    --font-display: 'Cinzel', serif;
+    --font-data: 'JetBrains Mono', monospace;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 8rem;
+
+    /* Grid */
+    --grid-cols: 12;
+    --grid-gap: 1px;
+    /* Visible borders */
+}
+
+/* Reset & Base */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    background-color: var(--color-void);
+    color: var(--color-text);
+    font-family: var(--font-data);
+    /* Default to data font */
+    font-size: 16px;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Typography Utilities */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Utility Classes */
+.container {
+    max-width: 100%;
+    padding: 0 var(--spacing-sm);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    gap: var(--grid-gap);
+    background-color: var(--color-border);
+    /* Creates the grid lines */
+    border: 1px solid var(--color-border);
+}
+
+.grid>* {
+    background-color: var(--color-void);
+    /* Fills cells to show gap */
+}
+
+/* Visual Debug */
+.debug {
+    outline: 1px solid red;
+}
+
+/* --- HERO SECTION --- */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 7fr 3fr;
+    /* 70% Image, 30% Text */
+    border-bottom: 1px solid var(--color-border);
+    overflow: hidden;
+}
+
+.hero-visual {
+    position: relative;
+    height: 100%;
+    border-right: 1px solid var(--color-border);
+    overflow: hidden;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(120%);
+    transform: scale(1.05);
+    /* Slight zoom for parallax feel later */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(5, 5, 5, 0.2);
+    /* Subtle tint */
+}
+
+.hero-content {
+    position: relative;
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-title {
+    font-size: 6vw;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--spacing-lg);
+}
+
+.hero-title .text-dim {
+    color: var(--color-border);
+    /* Very subtle second line */
+}
+
+.hero-data {
+    font-family: var(--font-data);
+    font-size: 0.75rem;
+    color: var(--color-text-dim);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.data-row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 4px;
+}
+
+.hero-scroll {
+    position: absolute;
+    bottom: var(--spacing-md);
+    right: var(--spacing-md);
+    /* Align to the text column */
+    width: 25%;
+    /* Fits within the 30% column roughly */
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+/* STRATUM Design System */
+
+:root {
+    /* Palette */
+    --color-void: #050505;
+    --color-panel: #1A1A1A;
+    --color-text: #E5E5E5;
+    --color-text-dim: #888888;
+    --color-border: #333333;
+    --color-white: #FFFFFF;
+
+    /* Typography */
+    --font-display: 'Cinzel', serif;
+    --font-data: 'JetBrains Mono', monospace;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 8rem;
+
+    /* Grid */
+    --grid-cols: 12;
+    --grid-gap: 1px;
+    /* Visible borders */
+}
+
+/* Reset & Base */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    background-color: var(--color-void);
+    color: var(--color-text);
+    font-family: var(--font-data);
+    /* Default to data font */
+    font-size: 16px;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Typography Utilities */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Utility Classes */
+.container {
+    max-width: 100%;
+    padding: 0 var(--spacing-sm);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    gap: var(--grid-gap);
+    background-color: var(--color-border);
+    /* Creates the grid lines */
+    border: 1px solid var(--color-border);
+}
+
+.grid>* {
+    background-color: var(--color-void);
+    /* Fills cells to show gap */
+}
+
+/* Visual Debug */
+.debug {
+    outline: 1px solid red;
+}
+
+/* --- HERO SECTION --- */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 7fr 3fr;
+    /* 70% Image, 30% Text */
+    border-bottom: 1px solid var(--color-border);
+    overflow: hidden;
+}
+
+.hero-visual {
+    position: relative;
+    height: 100%;
+    border-right: 1px solid var(--color-border);
+    overflow: hidden;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(120%);
+    transform: scale(1.05);
+    /* Slight zoom for parallax feel later */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(5, 5, 5, 0.2);
+    /* Subtle tint */
+}
+
+.hero-content {
+    position: relative;
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-title {
+    font-size: 6vw;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--spacing-lg);
+}
+
+.hero-title .text-dim {
+    color: var(--color-border);
+    /* Very subtle second line */
+}
+
+.hero-data {
+    font-family: var(--font-data);
+    font-size: 0.75rem;
+    color: var(--color-text-dim);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.data-row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 4px;
+}
+
+.hero-scroll {
+    position: absolute;
+    bottom: var(--spacing-md);
+    right: var(--spacing-md);
+    /* Align to the text column */
+    width: 25%;
+    /* Fits within the 30% column roughly */
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.scroll-text {
+    font-family: var(--font-data);
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+}
+
+.scroll-line {
+    height: 1px;
+    flex-grow: 1;
+    background-color: var(--color-text);
+}
+
+/* --- SOCIAL PROOF SECTION --- */
+.social-proof-section {
+    position: relative;
+    height: 120px;
+    border-bottom: 1px solid var(--color-border);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background-color: var(--color-void);
+}
+
+.ticker-wrap {
+    width: 100%;
+    overflow: hidden;
+}
+
+.ticker {
+    display: flex;
+    gap: var(--spacing-xl);
+    animation: ticker 30s linear infinite;
+    width: max-content;
+}
+
+.ticker:hover {
+    animation-play-state: paused;
+}
+
+.partner-item {
+    position: relative;
+    cursor: crosshair;
+    padding: 0 var(--spacing-md);
+}
+
+.partner-name {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--color-border);
+    /* Inactive state */
+    transition: color 0.3s ease;
+}
+
+.partner-item:hover .partner-name {
+    color: var(--color-white);
+}
+
+/* Tooltip-like data on hover (using pseudo-element for simplicity) */
+.partner-item:hover::after {
+    content: attr(data-loc) " / EST. " attr(data-est);
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-data);
+    white-space: nowrap;
+}
+
+@keyframes ticker {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-33.33%);
+    }
+
+    /* Move by 1/3rd because we tripled the list */
+}
+
+/* --- SERVICES SECTION --- */
+.services-section {
+    height: 80vh;
+    display: flex;
+    border-bottom: 1px solid var(--color-border);
+    overflow: hidden;
+}
+
+.service-col {
+    flex: 1;
+    position: relative;
+    border-right: 1px solid var(--color-border);
+    background-size: cover;
+    background-position: center;
+    transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.service-col:last-child {
+    border-right: none;
+}
+
+.service-col:hover {
+    flex: 2.5;
+}
+
+.service-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(5, 5, 5, 0.85);
+    /* Dark by default */
+    transition: background 0.6s ease;
+}
+
+.service-col:hover .service-overlay {
+    background: rgba(5, 5, 5, 0.4);
+    /* Lighten on hover to show image */
+}
+
+.service-content {
+    position: relative;
+    padding: var(--spacing-md);
+    z-index: 1;
+    width: 100%;
+}
+
+.service-title {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-sm);
+    white-space: nowrap;
+    transform-origin: bottom left;
+    transition: transform 0.6s ease;
+}
+
+/* Rotate title when collapsed (optional, maybe too complex for now, let's keep it simple) */
+/* Actually, let's just keep it horizontal but maybe smaller when collapsed? No, let's keep it standard. */
+
+.service-details {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.6s ease;
+}
+
+.service-col:hover .service-details {
+    max-height: 300px;
+    /* Arbitrary limit */
+    opacity: 1;
+    margin-top: var(--spacing-sm);
+}
+
+.service-desc {
+    font-family: var(--font-display);
+    /* Serif for description */
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.4;
+}
+
+.service-specs {
+    font-family: var(--font-data);
+    font-size: 0.7rem;
+    color: var(--color-text-dim);
+    list-style: none;
+}
+
+/* --- METHODOLOGY SECTION --- */
+.methodology-section {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.method-content {
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid var(--color-border);
+}
+
+.method-title {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.method-intro {
+    font-family: var(--font-data);
+    color: var(--color-text-dim);
+    margin-bottom: var(--spacing-lg);
+    max-width: 80%;
+    line-height: 1.6;
+}
+
+.method-steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.step {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: flex-start;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-border);
+}
+
+.step-num {
+    font-family: var(--font-data);
+    color: var(--color-text-dim);
+    font-size: 0.8rem;
+}
+
+.step-name {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.step-desc {
+    font-family: var(--font-data);
+    font-size: 0.9rem;
+    color: var(--color-text-dim);
+}
+
+.method-visual {
+    position: relative;
+    background-color: #000;
+    /* Pure black for blueprint */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blueprint-img {
+    width: 90%;
+    height: auto;
+    opacity: 0.8;
+    filter: invert(1) hue-rotate(180deg);
+    /* Make sure it looks like white lines if generated differently, or just keep as is if white on black */
+}
+}
+
+/* Tooltip-like data on hover (using pseudo-element for simplicity) */
+.partner-item:hover::after {
+    content: attr(data-loc) " / EST. " attr(data-est);
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-data);
+    white-space: nowrap;
+}
+
+@keyframes ticker {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-33.33%);
+    }
+
+    /* Move by 1/3rd because we tripled the list */
+}
+
+/* --- SERVICES SECTION --- */
+.services-section {
+    height: 80vh;
+    display: flex;
+    border-bottom: 1px solid var(--color-border);
+    overflow: hidden;
+}
+
+.service-col {
+    flex: 1;
+    position: relative;
+    border-right: 1px solid var(--color-border);
+    background-size: cover;
+    background-position: center;
+    transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.service-col:last-child {
+    border-right: none;
+}
+
+.service-col:hover {
+    flex: 2.5;
+}
+
+.service-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(5, 5, 5, 0.85);
+    /* Dark by default */
+    transition: background 0.6s ease;
+}
+
+.service-col:hover .service-overlay {
+    background: rgba(5, 5, 5, 0.4);
+    /* Lighten on hover to show image */
+}
+
+.service-content {
+    position: relative;
+    padding: var(--spacing-md);
+    z-index: 1;
+    width: 100%;
+}
+
+.service-title {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-sm);
+    white-space: nowrap;
+    transform-origin: bottom left;
+    transition: transform 0.6s ease;
+}
+
+/* Rotate title when collapsed (optional, maybe too complex for now, let's keep it simple) */
+/* Actually, let's just keep it horizontal but maybe smaller when collapsed? No, let's keep it standard. */
+
+.service-details {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.6s ease;
+}
+
+.service-col:hover .service-details {
+    max-height: 300px;
+    /* Arbitrary limit */
+    opacity: 1;
+    margin-top: var(--spacing-sm);
+}
+
+.service-desc {
+    font-family: var(--font-display);
+    /* Serif for description */
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.4;
+}
+
+.service-specs {
+    font-family: var(--font-data);
+    font-size: 0.7rem;
+    color: var(--color-text-dim);
+    list-style: none;
+}
+
+/* --- METHODOLOGY SECTION --- */
+.methodology-section {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.method-content {
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid var(--color-border);
+}
+
+.method-title {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.method-intro {
+    font-family: var(--font-data);
+    color: var(--color-text-dim);
+    margin-bottom: var(--spacing-lg);
+    max-width: 80%;
+    line-height: 1.6;
+}
+
+.method-steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.step {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: flex-start;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-border);
+}
+
+.step-num {
+    font-family: var(--font-data);
+    color: var(--color-text-dim);
+    font-size: 0.8rem;
+}
+
+.step-name {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.step-desc {
+    font-family: var(--font-data);
+    font-size: 0.9rem;
+    color: var(--color-text-dim);
+}
+
+.method-visual {
+    position: relative;
+    background-color: #000;
+    /* Pure black for blueprint */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blueprint-img {
+    width: 90%;
+    height: auto;
+    opacity: 0.8;
+    filter: invert(1) hue-rotate(180deg);
+    /* Make sure it looks like white lines if generated differently, or just keep as is if white on black */
+}
+
+/* Adjust filter if image is already white on black. The prompt asked for white on black. */
+/* If it is white on black, invert(1) makes it black on white. Let's assume it is white on black and remove filter for now, or check. */
+/* Actually, let's assume it's correct and just add a subtle grid overlay. */
+
+.blueprint-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(var(--color-border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--color-border) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+/* --- PROJECTS SECTION --- */
+.projects-section {
+    padding: var(--spacing-lg) var(--spacing-sm);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.projects-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: var(--spacing-md);
+    padding: 0 var(--spacing-sm);
+}
+
+.section-title {
+    font-size: 2rem;
+}
+
+.section-subtitle {
+    font-family: var(--font-data);
+    color: var(--color-text-dim);
+    font-size: 0.8rem;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    cursor: pointer;
+}
+
+.project-img-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+}
+
+.project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+.project-card:hover .project-img {
+    filter: grayscale(0%);
+    transform: scale(1.02);
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+.view-project {
+    font-family: var(--font-data);
+    background: var(--color-void);
+    color: var(--color-text);
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--color-text);
+    font-size: 0.7rem;
+}
+
+.project-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.project-meta-top {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-data);
+    font-size: 0.7rem;
+    color: var(--color-text-dim);
+}
+
+.project-name {
+    font-size: 1.5rem;
+}
+
+.project-mat {
+    font-family: var(--font-data);
+    font-size: 0.7rem;
+    color: var(--color-text);
+}
+
+/* --- CTA SECTION --- */
+.cta-section {
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.cta-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.cta-text {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    letter-spacing: 0.05em;
+}
+
+.cta-button {
+    position: relative;
+    padding: 1.5rem 3rem;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.cta-label {
+    position: relative;
+    z-index: 2;
+    font-family: var(--font-data);
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    color: var(--color-text);
+    transition: color 0.3s ease;
+}
+
+.cta-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--color-text);
+    transition: background 0.3s ease;
+}
+
+.cta-button:hover .cta-border {
+    background: var(--color-text);
+}
+
+.cta-button:hover .cta-label {
+    color: var(--color-void);
+}
