@@ -1,5 +1,7 @@
 import './style.css'
+import './service-detail-redesign.css'
 import { initRouter } from './utils/router.js'
+import { initTheme, toggleTheme } from './utils/theme.js'
 import { Header } from './components/Header.js'
 import { Footer } from './components/Footer.js'
 import { Home } from './pages/Home.js'
@@ -9,6 +11,9 @@ import { ProjectsPage } from './pages/ProjectsPage.js'
 import { MethodologyPage } from './pages/MethodologyPage.js'
 import { ProjectDetail } from './pages/ProjectDetail.js'
 import { ContactPage } from './pages/ContactPage.js'
+
+// Initialize theme immediately
+initTheme();
 
 const routes = {
   '#/': Home,
@@ -35,6 +40,14 @@ const render = ({ renderFn, params }) => {
     </main>
     ${Footer()}
   `
+
+  // Bind theme toggle
+  const themeBtn = document.getElementById('theme-toggle');
+  if (themeBtn) {
+      themeBtn.addEventListener('click', () => {
+          toggleTheme();
+      });
+  }
   
   // Multiple fallbacks to ensure scroll
   requestAnimationFrame(() => {

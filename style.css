@@ -1,13 +1,14 @@
 /* STRATUM Design System */
 
 :root {
-    /* Palette */
+    /* Palette - Dark (Default) */
     --color-void: #050505;
     --color-panel: #1A1A1A;
     --color-text: #E5E5E5;
     --color-text-dim: #888888;
     --color-border: #333333;
     --color-white: #FFFFFF;
+    --color-primary: #D4AF37; /* Gold accent */
 
     /* Typography */
     --font-display: 'Cinzel', serif;
@@ -23,7 +24,86 @@
     /* Grid */
     --grid-cols: 12;
     --grid-gap: 1px;
-    /* Visible borders */
+}
+
+[data-theme="light"] {
+    --color-void: #F5F5F5;
+    --color-panel: #E0E0E0;
+    --color-text: #1A1A1A;
+    --color-text-dim: #666666;
+    --color-border: #CCCCCC;
+    --color-white: #050505; /* Inverted for text contrast */
+}
+
+/* Theme-specific overrides */
+[data-theme="light"] .site-header {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Hero Text Protection (Ensure white text on dark imagery) */
+/* Default to white for dark theme/dark images */
+.hero-title,
+.project-title-large,
+.project-location-large,
+.service-title-large,
+.service-tagline,
+.service-id,
+.service-hero-content h1,
+.service-hero-content p,
+.project-hero-content h1,
+.project-hero-content p,
+.hero-content h1,
+.hero-content p {
+    color: #FFFFFF !important; 
+}
+
+/* Specific override for Home Hero on Light Theme - revert to dark text */
+[data-theme="light"] .hero-content .hero-title,
+[data-theme="light"] .hero-content .hero-data,
+[data-theme="light"] .hero-content .hero-data .data-row,
+[data-theme="light"] .hero-content p, 
+[data-theme="light"] .hero-content h1 {
+    color: var(--color-text) !important;
+}
+
+[data-theme="light"] .hero-title .text-dim {
+    color: var(--color-text-dim) !important;
+}
+
+/* Light Theme Overlays */
+[data-theme="light"] .hero-overlay,
+[data-theme="light"] .service-overlay,
+[data-theme="light"] .project-overlay {
+    background: rgba(255, 255, 255, 0.3); /* Light overlay */
+}
+
+[data-theme="light"] .service-col:hover .service-overlay {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+/* Keep Service Detail & Project Detail Hero Text White even in Light Theme 
+   because they use full screen images which are likely dark or need contrast */
+[data-theme="light"] .service-hero-content h1,
+[data-theme="light"] .service-hero-content p,
+[data-theme="light"] .service-tagline,
+[data-theme="light"] .service-id,
+[data-theme="light"] .project-hero-content h1,
+[data-theme="light"] .project-hero-content p,
+[data-theme="light"] .project-title-large,
+[data-theme="light"] .project-location-large,
+[data-theme="light"] .project-id-large {
+    color: #FFFFFF !important;
+}
+
+/* Ensure Service/Project Detail overlays remain dark for contrast if text is white */
+[data-theme="light"] .service-hero-overlay,
+[data-theme="light"] .project-hero-overlay {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6));
+}
+
+.service-tagline {
+    color: #E5E5E5 !important; /* Slightly dim for tagline */
 }
 
 /* Reset & Base */
@@ -179,13 +259,14 @@ a {
 /* STRATUM Design System */
 
 :root {
-    /* Palette */
+    /* Palette - Dark (Default) */
     --color-void: #050505;
     --color-panel: #1A1A1A;
     --color-text: #E5E5E5;
     --color-text-dim: #888888;
     --color-border: #333333;
     --color-white: #FFFFFF;
+    --color-primary: #D4AF37; /* Gold accent */
 
     /* Typography */
     --font-display: 'Cinzel', serif;
@@ -201,7 +282,86 @@ a {
     /* Grid */
     --grid-cols: 12;
     --grid-gap: 1px;
-    /* Visible borders */
+}
+
+[data-theme="light"] {
+    --color-void: #F5F5F5;
+    --color-panel: #E0E0E0;
+    --color-text: #1A1A1A;
+    --color-text-dim: #666666;
+    --color-border: #CCCCCC;
+    --color-white: #050505; /* Inverted for text contrast */
+}
+
+/* Theme-specific overrides */
+[data-theme="light"] .site-header {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Hero Text Protection (Ensure white text on dark imagery) */
+/* Default to white for dark theme/dark images */
+.hero-title,
+.project-title-large,
+.project-location-large,
+.service-title-large,
+.service-tagline,
+.service-id,
+.service-hero-content h1,
+.service-hero-content p,
+.project-hero-content h1,
+.project-hero-content p,
+.hero-content h1,
+.hero-content p {
+    color: #FFFFFF !important; 
+}
+
+/* Specific override for Home Hero on Light Theme - revert to dark text */
+[data-theme="light"] .hero-content .hero-title,
+[data-theme="light"] .hero-content .hero-data,
+[data-theme="light"] .hero-content .hero-data .data-row,
+[data-theme="light"] .hero-content p, 
+[data-theme="light"] .hero-content h1 {
+    color: var(--color-text) !important;
+}
+
+[data-theme="light"] .hero-title .text-dim {
+    color: var(--color-text-dim) !important;
+}
+
+/* Light Theme Overlays */
+[data-theme="light"] .hero-overlay,
+[data-theme="light"] .service-overlay,
+[data-theme="light"] .project-overlay {
+    background: rgba(255, 255, 255, 0.3); /* Light overlay */
+}
+
+[data-theme="light"] .service-col:hover .service-overlay {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+/* Keep Service Detail & Project Detail Hero Text White even in Light Theme 
+   because they use full screen images which are likely dark or need contrast */
+[data-theme="light"] .service-hero-content h1,
+[data-theme="light"] .service-hero-content p,
+[data-theme="light"] .service-tagline,
+[data-theme="light"] .service-id,
+[data-theme="light"] .project-hero-content h1,
+[data-theme="light"] .project-hero-content p,
+[data-theme="light"] .project-title-large,
+[data-theme="light"] .project-location-large,
+[data-theme="light"] .project-id-large {
+    color: #FFFFFF !important;
+}
+
+/* Ensure Service/Project Detail overlays remain dark for contrast if text is white */
+[data-theme="light"] .service-hero-overlay,
+[data-theme="light"] .project-hero-overlay {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6));
+}
+
+.service-tagline {
+    color: #E5E5E5 !important; /* Slightly dim for tagline */
 }
 
 /* Reset & Base */
@@ -2114,7 +2274,7 @@ a {
  }  
   
  . a p p l i c a t i o n - i t e m : : b e f o r e   {  
-     c o n t e n t :   ' â    ' ;  
+     c o n t e n t :   ' ï¿½    ' ;  
      p o s i t i o n :   a b s o l u t e ;  
      l e f t :   0 ;  
      c o l o r :   v a r ( - - p r i m a r y - c o l o r ) ;  
@@ -2416,7 +2576,7 @@ a {
  }  
   
  . a p p l i c a t i o n - i t e m : : b e f o r e   {  
-     c o n t e n t :   ' â  ¸ ' ;  
+     c o n t e n t :   ' ï¿½  ï¿½ ' ;  
      p o s i t i o n :   a b s o l u t e ;  
      l e f t :   0 ;  
      c o l o r :   v a r ( - - p r i m a r y - c o l o r ) ;  
@@ -3171,7 +3331,7 @@ a {
  }  
   
  . a p p - i t e m : : b e f o r e   {  
-     c o n t e n t :   ' â  ¸ ' ;  
+     c o n t e n t :   ' ï¿½  ï¿½ ' ;  
      p o s i t i o n :   a b s o l u t e ;  
      l e f t :   0 ;  
      c o l o r :   v a r ( - - p r i m a r y - c o l o r ) ;  

@@ -1,0 +1,340 @@
+/* =================================
+   SERVICE DETAIL PAGE STYLES (REDESIGN)
+   ================================= */
+
+:root {
+  --primary-color: #D4AF37; /* Classic Gold */
+}
+
+.service-detail-page {
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.service-hero {
+  position: relative;
+  height: 80vh;
+  width: 100%;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.service-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(110%);
+  animation: zoomIn 1.5s ease-out;
+}
+
+.service-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.85));
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: var(--spacing-xl);
+}
+
+.service-hero-content {
+  border-left: 3px solid var(--primary-color, #fff); /* Fallback color */
+  padding-left: var(--spacing-md);
+  animation: fadeInUp 0.8s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+.service-id {
+  display: block;
+  font-family: var(--font-data);
+  color: var(--color-text); 
+  margin-bottom: var(--spacing-sm);
+  font-size: 0.9rem;
+  letter-spacing: 0.3em;
+}
+
+.service-title-large {
+  font-size: 4.5rem;
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-white);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+
+.service-tagline {
+  font-family: var(--font-data);
+  color: var(--color-text);
+  letter-spacing: 0.1em;
+  font-size: 1.1rem;
+  max-width: 600px;
+}
+
+/* Intro Grid Section */
+.service-intro-grid {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr;
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-lg);
+}
+
+.service-description h2 {
+  margin-bottom: var(--spacing-md);
+  color: var(--color-white);
+  font-size: 2rem;
+  letter-spacing: 0.05em;
+}
+
+.service-description p {
+  font-size: 1.15rem;
+  line-height: 1.9;
+  color: var(--color-text);
+  font-family: var(--font-data);
+}
+
+.service-specs-detail h3 {
+  margin-bottom: var(--spacing-md);
+  color: var(--color-white);
+  font-size: 1.5rem;
+  letter-spacing: 0.05em;
+}
+
+.specs-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-top: 1px solid var(--color-border);
+}
+
+.spec-card {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.spec-label {
+  font-family: var(--font-data);
+  color: var(--color-text-dim);
+  font-size: 0.9rem;
+}
+
+.spec-value {
+  font-family: var(--font-data);
+  color: var(--color-text);
+  font-weight: bold;
+}
+
+/* Features Section */
+.service-features-section {
+  background-color: rgba(26, 26, 26, 0.5); 
+  padding: var(--spacing-xl) 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  margin-top: var(--spacing-xl);
+}
+
+.service-features-section .section-title {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-white);
+  letter-spacing: 0.05em;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+}
+
+.feature-card {
+  padding: var(--spacing-lg);
+  border: 1px solid var(--color-border);
+  background: linear-gradient(135deg, rgba(5,5,5,0.9), rgba(26,26,26,0.6));
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--color-text);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.feature-card:hover {
+  border-color: var(--color-text);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+.feature-card:hover::before {
+  transform: scaleX(1);
+}
+
+.feature-number {
+  display: block;
+  font-family: var(--font-data);
+  color: var(--color-text-dim);
+  font-size: 0.85rem;
+  margin-bottom: var(--spacing-sm);
+  letter-spacing: 0.2em;
+}
+
+.feature-title {
+  font-size: 1.6rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.feature-desc {
+  font-family: var(--font-data);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-text-dim);
+}
+
+/* Process & Applications Grid */
+.process-applications-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-xl);
+}
+
+.process-section h2,
+.applications-section h2 {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-white);
+  letter-spacing: 0.05em;
+}
+
+.process-list {
+  list-style: none;
+  border-top: 2px solid var(--color-border);
+}
+
+.process-step {
+  display: flex;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) 0;
+  border-bottom: 1px solid var(--color-border);
+  align-items: flex-start;
+  transition: background-color 0.3s ease;
+}
+
+.process-step:hover {
+  background-color: rgba(26, 26, 26, 0.3);
+  padding-left: var(--spacing-sm);
+}
+
+.step-number {
+  font-family: var(--font-data);
+  color: var(--color-text-dim);
+  font-size: 1.3rem;
+  min-width: 3.5rem;
+  font-weight: 600;
+}
+
+.step-text {
+  font-family: var(--font-data);
+  font-size: 1rem;
+  color: var(--color-text);
+  line-height: 1.7;
+  padding-top: 0.2rem;
+}
+
+.applications-list {
+  list-style: none;
+  border-top: 1px solid var(--color-border);
+}
+
+.application-item {
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--color-border);
+  font-family: var(--font-data);
+  color: var(--color-text);
+  font-size: 0.95rem;
+  position: relative;
+  padding-left: var(--spacing-md);
+}
+
+.application-item::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--color-text-dim);
+}
+
+/* Animations */
+@keyframes zoomIn {
+    from { transform: scale(1.1); }
+    to { transform: scale(1); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Light Theme Overrides for Features Section */
+[data-theme="light"] .service-features-section {
+    background-color: var(--color-void); /* Use bright/light background */
+}
+
+[data-theme="light"] .service-features-section .section-title {
+    color: var(--color-text); /* Dark text */
+}
+
+[data-theme="light"] .feature-card {
+    background: #FFFFFF; /* Explicit bright white */
+    border: 1px solid var(--color-border);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+[data-theme="light"] .feature-card:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    border-color: var(--color-primary);
+}
+
+[data-theme="light"] .feature-title {
+    color: var(--color-text);
+}
+
+[data-theme="light"] .feature-desc {
+    color: var(--color-text-dim);
+}
+
+[data-theme="light"] .feature-number {
+    color: var(--color-primary); /* Keep primary color or use dim text */
+}
+
+@media (max-width: 768px) {
+  .service-intro-grid,
+  .process-applications-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .service-title-large {
+    font-size: 2.5rem;
+  }
+  
+  .service-hero {
+    height: 50vh;
+  }
+}

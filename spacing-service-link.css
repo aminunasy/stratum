@@ -2,7 +2,7 @@
 /* Service Card View Details Button Spacing */
 .service-link {
   display: inline-block;
-  margin-top: var(--spacing-md);
+  margin-top: var(--spacing-lg); /* Increased from md to lg */
   font-family: var(--font-data);
   color: var(--color-text);
   text-decoration: none;

@@ -23,79 +23,78 @@ export const ServiceDetail = (params) => {
   
   return `
     <div class="service-detail-page">
-      <!-- Split Hero Section -->
-      <section class="service-split-hero">
-        <div class="hero-image-side">
-          <img src="${service.heroImage}" alt="${service.title}" class="service-detail-img" />
+      <!-- Full Screen Hero -->
+      <section class="service-hero">
+        <div class="service-hero-overlay">
+            <div class="service-hero-content container">
+                <span class="service-id">SVC-${service.id.toUpperCase()}</span>
+                <h1 class="service-title-large">${service.title}</h1>
+                <p class="service-tagline">${service.tagline}</p>
+            </div>
         </div>
-        <div class="hero-content-side">
-          <div class="hero-content-inner">
-            <span class="service-id-badge">SVC-${service.id.toUpperCase()}</span>
-            <h1 class="service-main-title">${service.title}</h1>
-            <p class="service-main-tagline">${service.tagline}</p>
-            
-            <div class="service-overview">
-              <h2>About This Service</h2>
-              <p>${service.description}</p>
-            </div>
+        <img src="${service.heroImage}" alt="${service.title}" class="service-hero-img" />
+      </section>
 
-            <!-- Specs Inline -->
-            <div class="specs-inline">
-              <h3>Specifications</h3>
-              <div class="specs-inline-grid">
-                ${service.specifications.map(spec => `
-                  <div class="spec-inline-item">
-                    <span class="spec-inline-label">${spec.label}</span>
-                    <span class="spec-inline-value">${spec.value}</span>
-                  </div>
-                `).join('')}
-              </div>
+      <!-- Intro & Specs -->
+      <section class="service-intro container section-padding">
+        <div class="service-intro-grid">
+            <div class="service-description">
+                <h2>Overview</h2>
+                <p>${service.description}</p>
             </div>
-          </div>
+            <div class="service-specs-detail">
+                <h3>Specifications</h3>
+                <div class="specs-grid">
+                    ${service.specifications.map(spec => `
+                      <div class="spec-card">
+                        <span class="spec-label">${spec.label}</span>
+                        <span class="spec-value">${spec.value}</span>
+                      </div>
+                    `).join('')}
+                </div>
+            </div>
         </div>
       </section>
 
-      <!-- Features & Process Section -->
-      <section class="service-details-section container section-padding">
-        <div class="details-two-col">
-          <!-- Left Column -->
-          <div class="details-left">
-            <!-- Features -->
-            <div class="detail-block">
-              <h2>Key Features</h2>
-              <ul class="features-simple-list">
-                ${service.features.map(feature => `
-                  <li class="feature-simple-item">
-                    <strong>${feature.title}:</strong> ${feature.description}
-                  </li>
+      <!-- Key Features (Dark Section) -->
+      <section class="service-features-section">
+        <div class="container">
+            <h2 class="section-title">Key Features</h2>
+            <div class="features-grid">
+                ${service.features.map((feature, index) => `
+                    <div class="feature-card">
+                        <span class="feature-number">0${index + 1}</span>
+                        <h3 class="feature-title">${feature.title}</h3>
+                        <p class="feature-desc">${feature.description}</p>
+                    </div>
                 `).join('')}
-              </ul>
             </div>
-          </div>
-
-          <!-- Right Column -->
-          <div class="details-right">
-            <!-- Process -->
-            <div class="detail-block">
-              <h2>Our Process</h2>
-              <ol class="process-simple-list">
-                ${service.process.map(step => `
-                  <li class="process-simple-item">${step}</li>
-                `).join('')}
-              </ol>
-            </div>
-
-            <!-- Applications -->
-            <div class="detail-block">
-              <h2>Ideal Applications</h2>
-              <ul class="applications-simple-list">
-                ${service.applications.map(app => `
-                  <li class="application-simple-item">${app}</li>
-                `).join('')}
-              </ul>
-            </div>
-          </div>
         </div>
+      </section>
+
+      <!-- Process & Applications -->
+      <section class="process-applications-section container section-padding">
+          <div class="process-applications-grid">
+              <div class="process-section">
+                  <h2>Our Process</h2>
+                  <div class="process-list">
+                      ${service.process.map((step, index) => `
+                          <div class="process-step">
+                              <span class="step-number">${index + 1}</span>
+                              <span class="step-text">${step}</span>
+                          </div>
+                      `).join('')}
+                  </div>
+              </div>
+              <div class="applications-section">
+                  <h2>Ideal Applications</h2>
+                  <ul class="applications-list">
+                      ${service.applications.map(app => `
+                          <li class="application-item">${app}</li>
+                      `).join('')}
+                  </ul>
+              </div>
+          </div>
       </section>
 
       <!-- Navigation Footer -->

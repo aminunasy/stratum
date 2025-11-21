@@ -10,11 +10,16 @@ export const Header = () => {
           <a href="#/methodology" class="nav-link">Methodology</a>
           <a href="#/contact" class="nav-link">Contact</a>
         </nav>
-        <button class="mobile-menu-toggle" aria-label="Toggle menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+        <div class="header-actions" style="display: flex; align-items: center; gap: 1rem;">
+            <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme" style="background: none; border: 1px solid var(--color-border); color: var(--color-text); padding: 0.5rem; cursor: pointer;">
+                ☀/☾
+            </button>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+        </div>
       </div>
     </header>
   `;
