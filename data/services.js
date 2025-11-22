@@ -107,7 +107,7 @@ export const servicesData = {
     id: 'commercial',
     title: 'COMMERCIAL SYSTEMS',
     tagline: 'High-Performance Solutions for Large-Scale Projects',
-    heroImage: '/service-commercial.png',
+    heroImage: '/project-manor.png',
     description: 'Engineered roofing systems for commercial and industrial applications. We specialize in high-performance flat roofing, green roof systems, and energy-efficient solutions that meet the demanding requirements of modern commercial structures.',
     
     specifications: [

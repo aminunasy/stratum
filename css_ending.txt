@@ -1,0 +1,22 @@
+@media (max-width: 768px) {
+  .project-grid-detail {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .project-title-large {
+    font-size: 3rem;
+  }
+  
+  .project-hero {
+      height: 60vh;
+  }
+}
+
+.service-action {
+    margin-top: var(--spacing-sm);
+}

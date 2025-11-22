@@ -19,7 +19,7 @@ export function Services() {
             title: 'COMMERCIAL SYSTEMS',
             desc: 'High-performance flat roofing for large-scale industrial structures.',
             specs: ['SYSTEM: TPO/EPDM', 'R-VALUE: 30+', 'WARRANTY: 30 YRS'],
-            img: '/service-commercial.png'
+            img: '/project-manor.png'
         }
     ];
 

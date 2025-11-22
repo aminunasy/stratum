@@ -29,7 +29,10 @@ export const ContactPage = () => {
                 <label for="message">Message</label>
                 <textarea id="message" name="message" rows="5" required></textarea>
               </div>
-              <button type="submit" class="btn btn-primary">Send Message</button>
+              <button type="submit" class="btn btn-primary">
+                Send Message
+                <span class="arrow">→</span>
+              </button>
             </form>
           </div>
         </div>
