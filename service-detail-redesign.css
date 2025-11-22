@@ -275,6 +275,13 @@
   color: var(--color-text-dim);
 }
 
+/* Navigation Footer */
+.service-nav-footer {
+  margin-top: var(--spacing-xl);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--color-border);
+}
+
 /* Animations */
 @keyframes zoomIn {
     from { transform: scale(1.1); }
